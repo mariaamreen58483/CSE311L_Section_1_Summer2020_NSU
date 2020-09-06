@@ -1,0 +1,58 @@
+ques 01:
+
+Write a query that displays the last name , daily salary, department number of the
+employees. Name the salary column as "Daily Salary".
+
+Ans:
+SELECT LAST_NAME,
+       salary/30 Daily_Salary,
+       DEPARTMENT_ID
+FROM employees;
+
+
+
+ques 02:
+Write a query that displays the last name concatenated with the job ID, separated by a
+comma and space, and name the column Employee and Title.
+
+ANS:
+SELECT last_name||', '||job_id "Employee and Title"
+FROM employees;
+
+
+
+ques 03:
+Display the employee last name, job ID, and start date of employees hired between
+February 20, 1998, and May 1, 1998. Order the query in ascending order by start date.
+
+ANS:
+
+SELECT last_name, job_id, hire_date
+FROM employees
+WHERE hire_date BETWEEN '20-Feb-1998' AND '01-May-1998'
+ORDER BY hire_date;
+
+
+
+ques 04:
+Display the last name, hire date and department number of all employees in
+departments 20 and 50 in alphabetical order by hire date.
+
+
+ANS:
+SELECT LAST_NAME,HIRE_DATE, DEPARTMENT_ID
+FROM employees
+WHERE department_id IN (20, 50)
+ORDER BY HIRE_DATE;
+
+
+Ques 05:
+
+Display the last name and hire date of every employee who was hired in 1994 and
+earns more than 9200.
+
+
+ANS:
+SELECT last_name, hire_date
+FROM employees
+WHERE hire_date LIKE '%94'AND SALARY > 9200;

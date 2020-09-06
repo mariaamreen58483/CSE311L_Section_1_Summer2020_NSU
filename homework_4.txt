@@ -1,0 +1,60 @@
+ques 01:
+Write a query that displays employee name and the minimum, maximum, sum, and
+average salary for each job type.
+
+ANS: 
+SELECT job_id, SUM(salary), AVG(salary), MAX(salary), MIN(salary)
+FROM employees 
+GROUP BY job_id;
+
+Ques 02:
+Display the manager number and the salary of the lowest paid employee for that manager.
+Exclude anyone whose manager is not known. Exclude any groups where the minimum
+salary is $6,000 or less. Sort the output in descending order of salary. 
+
+ANS:
+SELECT manager_id, MIN(salary)
+FROM employees
+WHERE manager_id IS NOT NULL
+GROUP BY manager_id
+HAVING MIN(salary) > 6000
+ORDER BY MIN(salary) DESC;
+
+
+Ques 03: 
+Write a query to display each department’s name, location, number of employees, and
+the average salary for all employees in that department. Label the columns Name,
+Location, Number of People, and Salary, respectively. Round the average salary to two
+decimal places.
+
+
+
+ANS:
+SELECT d.department_name "Name", d.location_id "Location ",
+COUNT(*) "Number of People",
+ROUND(AVG(salary),2) "Salary"
+FROM employees e, departments d
+WHERE e.department_id = d.department_id
+GROUP BY d.department_name, d.location_id;
+
+Ques 04:
+Write a query to display the name and number of people with the same job.
+
+ANS:
+SELECT job_id, COUNT(*)
+FROM employees
+GROUP BY job_id;
+
+
+
+Ques 05:
+Display the last name, salary, and commission for all employees who doesn’t earn
+commissions. Sort data in descending order of salary and commissions
+
+
+ANS: 
+SELECT last_name, salary, commission_pct
+FROM employees
+WHERE commission_pct IS NOT NULL
+ORDER BY salary DESC, commission_pct DESC;
+

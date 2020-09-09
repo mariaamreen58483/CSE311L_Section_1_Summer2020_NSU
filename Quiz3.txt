@@ -1,0 +1,22 @@
+1. Write a query that displays the last name concatenated with the job ID, separated by a comma and space, and name the column Employee and Title
+
+
+ANS:
+SELECT last_name||', '||job_id "Employee and Title"
+FROM employees;
+
+
+2. Display the last name, salary, and commission for all employees who earn commissions. Sort data in descending order of salary.
+
+ANS:
+SELECT last_name, salary, commission_pct
+FROM employees
+WHERE commission_pct IS NOT NULL
+ORDER BY salary DESC, commission_pct DESC;
+
+3. Display the last name and hire date of every employee who was hired in 1994.
+
+ANS:
+SELECT last_name, hire_date
+FROM employees
+WHERE hire_date LIKE '%94';
